@@ -97,6 +97,58 @@ plt.ylabel('GPA', fontsize=20)
 plt.show()
 
 
+# # Making Predictions with the Linear Regression
+
+# In[27]:
+
+
+x.head(7)
+
+
+# In[28]:
+
+
+## Internally code the new var we seek to find answers to bob and alice 
+
+
+# In[29]:
+
+
+new_data = pd.DataFrame({'const':1, 'SAT': [1700, 1670], 'Attendance':[0,1]})
+
+
+# In[30]:
+
+
+new_data
+
+
+# In[31]:
+
+
+new_data = new_data[['const', 'SAT', 'Attendance']]
+
+
+# In[32]:
+
+
+new_data
+
+
+# In[33]:
+
+
+predictions = results.predict(new_data); predictions
+
+
+# In[34]:
+
+
+predictionsdf = pd.DataFrame({'Predictions': predictions})
+joined = new_data.join(predictionsdf)
+joined.rename(index = {0 :'Bob', 1:'Alice'})
+
+
 # In[ ]:
 
 
